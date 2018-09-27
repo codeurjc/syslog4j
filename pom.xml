@@ -1,67 +1,91 @@
-<project>
-  <modelVersion>4.0.0</modelVersion>
-  <parent>
-    <groupId>org.syslog4j</groupId>
-    <artifactId>syslog4j-parent</artifactId>
-    <version>1-SNAPSHOT</version>
-  </parent>
-  <artifactId>syslog4j</artifactId>
-  <version>0.9.46-SNAPSHOT</version>
-  <packaging>jar</packaging>
-  <name>${project.artifactId}</name>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 
-  <description>Syslog4j provides client and server implementations of the BSD
-    Syslog protocol (RFC 3164) and the draft "structured syslog" protocol (RFC
-    Draft).
-  </description>
-  <url>https://github.com/syslog4j</url>
-  <inceptionYear>2007</inceptionYear>
-  <scm>
-    <connection>scm:git:git@github.com:syslog4j/${project.artifactId}.git
-    </connection>
-    <developerConnection>${project.scm.connection}</developerConnection>
-    <url>https://github.com/syslog4j/${project.artifactId}</url>
-    <tag>HEAD</tag>
-  </scm>
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>es.codeurjc</groupId>
+	<artifactId>syslog4j</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>jar</packaging>
+	<name>syslog4j</name>
 
-  <build>
-    <plugins>
-      <plugin>
-        <artifactId>maven-surefire-plugin</artifactId>
-        <configuration>
-          <excludes>
-            <exclude>**/Syslog4jTest.java</exclude>
-          </excludes>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+	<url>http://www.syslog4j.org</url>
 
-  <dependencies>
-    <dependency>
-      <groupId>commons-pool</groupId>
-      <artifactId>commons-pool</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>joda-time</groupId>
-      <artifactId>joda-time</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>com.sun.jna</groupId>
-      <artifactId>jna</artifactId>
-      <optional>true</optional>
-    </dependency>
-    <dependency>
-      <groupId>junit</groupId>
-      <artifactId>junit</artifactId>
-      <scope>test</scope>
-    </dependency>
-  </dependencies>
+	<licenses>
+		<license>
+			<name>LGPL</name>
+			<url>http://www.gnu.org/licenses/lgpl-2.1.html</url>
+		</license>
+	</licenses>
+
+	<description>Syslog4j provides client and server implementations of the BSD Syslog protocol (RFC 3164) and the draft "structured syslog" protocol (RFC Draft).
+    </description>
+
+	<scm>
+		<connection>scm:git:git@github.com:codeurjc/syslog4j.git</connection>
+		<developerConnection>scm:git:git@github.com:codeurjc/syslog4j.git</developerConnection>
+		<url>https://github.com/codeurjc/syslog4j</url>
+	</scm>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>commons-pool</groupId>
+			<artifactId>commons-pool</artifactId>
+			<optional>true</optional>
+			<version>1.6</version>
+		</dependency>
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<optional>true</optional>
+			<version>1.2.17</version>
+		</dependency>
+		<dependency>
+			<groupId>joda-time</groupId>
+			<artifactId>joda-time</artifactId>
+			<optional>true</optional>
+			<version>2.10</version>
+		</dependency>
+		<dependency>
+			<groupId>com.sun.jna</groupId>
+			<artifactId>jna</artifactId>
+			<optional>true</optional>
+			<version>3.0.9</version>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.12</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+	</dependencies>
+
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<version>2.0</version>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.6</version>
+				<configuration>
+					<excludes>
+						<exclude>**/PooledSSLTCPNetSyslog4jTest.java</exclude>
+						<exclude>**/SSLTCPNetSyslog4jTest.java</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+
 </project> 
