@@ -103,6 +103,7 @@ public class TCPNetSyslogServer extends AbstractSyslogServer {
                             this.socket, event);
 
                     line = nextLine;
+                    currentCompleteLine = line;
                 }
 
                 scanner.close();
