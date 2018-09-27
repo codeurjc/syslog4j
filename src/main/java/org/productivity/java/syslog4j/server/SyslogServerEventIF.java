@@ -42,23 +42,7 @@ public interface SyslogServerEventIF extends SyslogCharSetIF {
 
     public void setHost(String host);
 
-    public String getHostName();
-
-    public void setHostName(String hostName);
-
     public boolean isHostStrippedFromMessage();
-
-    public String getAppName();
-
-    public void setAppName(String appName);
-
-    public Long getProcid();
-
-    public void setProcid(Long procid);
-
-    public String getMsgid();
-
-    public void setMsgid(String msgid);
 
     public String getMessage();
 
